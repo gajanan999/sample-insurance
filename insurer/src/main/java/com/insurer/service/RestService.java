@@ -42,11 +42,7 @@ public class RestService {
 		LinkedHashMap<String, Double> map=new LinkedHashMap<>();
 	
 		map = restTemplate.postForObject(URL, requestPolicyVo, LinkedHashMap.class);
-	   
-		
-		
-		
-		
+
 	    log.info(map + " " + map.toString());
 	    System.out.println(map);
 	    
@@ -62,8 +58,8 @@ public class RestService {
 	    
 	  //  Object o=restTemplate.exchange(builder.toUriString(), HttpMethod.GET, request, Object.class);
 	   // System.out.println(o.toString());
-	    
-	    String result = restTemplate.getForObject(builder.toString(),  String.class);
+	    System.out.println(builder.toUriString());
+	    String result = restTemplate.getForObject(builder.toUriString(),  String.class);
 		   
 		
 	   // QuoteVoXML quoteVoXM= restTemplate.exchange(builder.toUriString(), HttpMethod.GET, request, QuoteVoXML.class);
