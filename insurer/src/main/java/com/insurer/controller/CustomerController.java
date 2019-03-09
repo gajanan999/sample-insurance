@@ -1,5 +1,6 @@
 package com.insurer.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.lang3.math.NumberUtils;
@@ -10,13 +11,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.insurer.service.RestService;
 import com.insurer.vo.CustomerDetails;
+import com.insurer.vo.QuoteVo;
 
 @Controller
 public class CustomerController {
 
 	@Autowired
 	MessageSource messageSource;
+	
+	@Autowired
+	RestService restService;
 	
 	static Locale local=new Locale("en");
 	
@@ -36,6 +42,8 @@ public class CustomerController {
 			model.addAttribute("msg", messageSource.getMessage("INVALID_EXPERIENCE", new Object[0],local));
 			return "index";
 		}
+		
+		List<QuoteVo> list=restService.getRestReponse();
 		
 		
 		model.addAttribute("name", "Got success");
