@@ -225,6 +225,8 @@ header.major h2:after {
             }
 .msg-error{
 	padding-bottom: 15px;
+	color: red;
+    font-weight: 600;
 }
 .btnDetails{
 	border: none;

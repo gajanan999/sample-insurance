@@ -57,30 +57,31 @@
 							<h3>
 								<span>Please Fill Your Details</span>
 							</h3>
-							<form action="/action_page.php" method="get">
+							<form th:object="${customerDetails}" th:action="@{/search}" action="#" method="post">
+							<!-- <form action="/action_page.php" method="get"> -->
 								<div class="textinput">
-									<input type="text" id="name" value="" maxlength="40"
+									<input type="text" id="name" name="tpnr" value="" maxlength="40"
 										class="filled" placeholder="Car Technical Passport Number">
 								</div>
 								<div class="textinput">
-									<input type="text" id="name" value="" maxlength="40"
+									<input type="text" id="custName" name="custName" value="" maxlength="40"
 										class="filled" placeholder="Enter Your Name">
 								</div>
 								<div class="textinput">
-									<input type="date" id="name" value="" maxlength="40"
+									<input type="date" id="dob" name="dob" value="" maxlength="40"
 										class="filled" placeholder="Enter Your Date Of Birth">
 								</div>
 								<div class="textinput">
-									<input type="text" id="name" value="" maxlength="40"
+									<input type="text" id="drivingExp" name="drivingExp" value="" maxlength="40"
 										class="filled" placeholder="Enter Your Driving Experience">
 								</div>
 	
 								<div class="msg-error">
-									<span>{{}}</span>
+									<span th:if="${null!=msg}" th:text="${msg}"></span>
 								</div>
 	
 								<div class="btn">
-									<button class="btnDetails">Continue</button>
+									<button type="submit" class="btnDetails">Continue</button>
 								</div>
 							</form>
 						</div>
