@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Stellar by HTML5 UP</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link href="../static/css/main.css.css" th:href="@{/css/main.css}" rel="stylesheet" />
+<!-- <link rel="stylesheet" href="assets/css/main_insurer.css" /> -->
+<!--<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#home" class="active">Home</a></li>
+				<li><a href="#admin">Admin</a></li>
+				<li><a href="#contact">Contact us</a></li>
+			</ul>
+		</nav>
+		<!-- Main -->
+		<div id="main">
+			<!-- Introduction -->
+			<section id="intro" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h2>Welcome to Insurance Market</h2>
+						</header>
+						<p>
+							<span class="webTitle"><a href="#intro">InsuranceMarket.com</a></span>
+							is Online insurance broker where you can compare and choose the
+							best car insurance.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="userInfo" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<div class="visibilty-hidden">
+							<img src="images/discount-banner.jpg">
+						</div>
+					</div>
+					<div class="columnDiv">
+						<div class="ambassador">
+							<span class="image"><img
+								th:src="@{/images/car_insurance_protection1.png}" alt="" /></span>
+						</div>
+						<div class="registeration">
+							<div class="h_quote">
+								Save upto 80% on car insurance, Renew in <span>2 minutes
+								</span>
+							</div>
+							<h3>
+								<span>Please Fill Your Details</span>
+							</h3>
+							<form action="/action_page.php" method="get">
+								<div class="textinput">
+									<input type="text" id="name" value="" maxlength="40"
+										class="filled" placeholder="Car Technical Passport Number">
+								</div>
+								<div class="textinput">
+									<input type="text" id="name" value="" maxlength="40"
+										class="filled" placeholder="Enter Your Name">
+								</div>
+								<div class="textinput">
+									<input type="date" id="name" value="" maxlength="40"
+										class="filled" placeholder="Enter Your Date Of Birth">
+								</div>
+								<div class="textinput">
+									<input type="text" id="name" value="" maxlength="40"
+										class="filled" placeholder="Enter Your Driving Experience">
+								</div>
+	
+								<div class="msg-error">
+									<span>{{}}</span>
+								</div>
+	
+								<div class="btn">
+									<button class="btnDetails">Continue</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
