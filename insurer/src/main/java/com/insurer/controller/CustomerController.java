@@ -1,5 +1,7 @@
 package com.insurer.controller;
 
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,10 +45,17 @@ public class CustomerController {
 			return "index";
 		}
 		
-		List<QuoteVo> list=restService.getRestReponse();
+		List<QuoteVo> quoteList=new ArrayList<>();
+		try {
+			quoteList = restService.getRestReponse(customerDetails);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "greeting";
+		}
 		
 		
-		model.addAttribute("name", "Got success");
-	    return "greeting";
+		model.addAttribute("quotes", quoteList);
+	    return "qoutes";
 	}
 }

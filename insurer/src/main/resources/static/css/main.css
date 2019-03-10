@@ -263,3 +263,27 @@ span.image img {
     margin: 5px 5px 5px 5px;
 }
 
+h2.resultHeading {
+    color: darkslategrey;
+    font-family: "Gotham SSm A","Gotham SSm B",Arial;
+}
+
+
+table.table.table-striped {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+#qoutes th.th {
+    background-color: lightgray;
+    font-size: 20px;
+}
+
+#qoutes tr.row {
+    text-align: center;
+    border-bottom: 1pt solid #4e5258;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}

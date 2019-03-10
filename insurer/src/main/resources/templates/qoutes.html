@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Stellar by HTML5 UP</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link href="../static/css/main.css.css" th:href="@{/css/main.css}" rel="stylesheet" />
+<!-- <link rel="stylesheet" href="assets/css/main_insurer.css" /> -->
+<!--<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<!-- Nav -->
+		<!-- <nav id="nav">
+			<ul>
+				<li><a href="#home" class="active">Home</a></li>
+				<li><a href="#admin">Admin</a></li>
+				<li><a href="#contact">Contact us</a></li>
+			</ul>
+		</nav> -->
+		<div th:replace="header :: header"> </div>
+		<!-- Main -->
+		<div id="main">
+			<!-- Introduction -->
+			<section id="intro" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<div th:if="${not #lists.isEmpty(quotes)}">
+						    <h2 class="resultHeading">Here You will find nice Insurances</h2>
+						    <table id="qoutes" class="table table-striped">
+						        <tr class="row">
+						            <th class="th">Insurer</th>
+						            <th class="th">Cashless</th>
+						            <th class="th">IDV</th>
+						            <th class="th">Zero Deprication Addon</th>
+						            <th class="th">Premium</th>
+						        </tr>
+						        <tr class="row" th:each="quote : ${quotes}">
+						            <td th:text="${quote.insurer}"></td>
+						            <td th:text="${quote.cashless}"></td>
+						            <td th:text="${quote.idv}"></td>
+						            <td th:text="${quote.zeroDepricationAddon}"></td>
+						            <td th:text="${quote.premium}"></td>
+						        </tr>
+						    </table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>
