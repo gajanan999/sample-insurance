@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Stellar by HTML5 UP</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+<!--<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<!-- Nav -->
+		<div th:replace="header :: header"> </div>
+		<!-- Main -->
+		<div id="main">
+			<!-- Introduction -->
+			<section id="intro" class="adminMain">
+				<div class="spotlight">
+					<div class="content">
+						<div class="configuredRequest">
+							<div class="heading_configuredRequest">
+								<span class="boldLabel"> Configured Requests </span>
+							</div>
+							<div class="configuredRequest_data">
+								<span class="boldLabel"> Configured Requests </span>
+							</div>
+							
+						</div>
+						<div class="configureRequest">
+							<div class="headerData">
+								<div class="url">
+									<span class="boldLabel"> URL: </span> <input class="urlInput"
+										type="text" id="url" name="url"></input>
+								</div>
+								<div class="httpMethodType">
+									<div class="httpMethod">
+										<span class="boldLabel"> HTTP-Method: </span> <select
+											class="methodType">
+											<option value="GET">GET</option>
+										</select>
+									</div>
+									<div class="consumes">
+										<span class="boldLabel"> Consumes: </span> <select
+											class="consumeType">
+											<option value="application/json">application/json</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="authorizationData">
+								<span class="boldLabel"> Basic Authorization: </span> <span
+									class="boldLabel"> Username: </span> <input
+									class="usernameInput" type="text" id="username" name="username"></input>
+								<span class="boldLabel"> Password: </span> <input
+									class="passwordInput" type="text" id="password" name="password"></input>
+							</div>
+							<div class="btnArea">
+								<button class="btnDetails configRequest">Configure</button>
+							</div>
+						</div>
+						<div class="configureRequest">
+							<div class="headerData">
+								<div class="url">
+									<span class="boldLabel"> URL: </span> <input class="urlInput"
+										type="text" id="url" name="url"></input>
+								</div>
+								<div class="httpMethodType">
+									<div class="httpMethod">
+										<span class="boldLabel"> HTTP-Method: </span> <select
+											class="methodType">
+											<option value="GET">POST</option>
+										</select>
+									</div>
+									<div class="consumes">
+										<span class="boldLabel"> Consumes: </span> <select
+											class="consumeType">
+											<option value="application/json">application/json</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="bodyData">
+								<span class="boldLabel"> Request-body: </span>
+								<div class="bigInput">
+									<input class="bodyInput" type="text" id="body" name="body"></input>
+								</div>
+							</div>
+							<div class="authorizationData">
+								<span class="boldLabel"> Basic Authorization: </span> <span
+									class="boldLabel"> Username: </span> <input
+									class="usernameInput" type="text" id="username" name="username"></input>
+								<span class="boldLabel"> Password: </span> <input
+									class="passwordInput" type="text" id="password" name="password"></input>
+							</div>
+							<div class="btnArea">
+								<button class="btnDetails configRequest">Configure</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
