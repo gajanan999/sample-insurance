@@ -11,19 +11,18 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.insurer.vo.QuoteVo;
+import com.insurer.dao.RestRequestsRepository;
+import com.insurer.entities.RestRequestEntity;
 import com.insurer.vo.CustomerDetails;
 import com.insurer.vo.Quote;
+import com.insurer.vo.QuoteVo;
 import com.insurer.vo.RequestPolicyVo;
 
 @Service
@@ -32,6 +31,9 @@ public class RestService {
 	private static final Logger log = LoggerFactory.getLogger(RestService.class);
 	
 	private RestTemplate restTemplate =null;
+	
+	@Autowired
+	RestRequestsRepository restRequestsRepository;
 	
 	public RestTemplate getRestTemplate() {
 		if(null == restTemplate) {
@@ -117,6 +119,47 @@ public class RestService {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Basic " + base64Creds);
 		return headers;
+	}
+	
+	public List<RestRequestEntity> getRestRequestEntityList() {
+		List<RestRequestEntity> requestList=new ArrayList<>();
+		
+		requestList=restRequestsRepository.findAll();
+		if(!(requestList.size()>0)) {
+			boolean dataAdded=addRequestsToDB();
+			if(dataAdded)
+				requestList=restRequestsRepository.findAll();
+		}
+		
+		return requestList;
+	}
+	
+	public boolean addRequestsToDB() {
+		try {
+			RestRequestEntity restRequestEntity= new RestRequestEntity();
+			restRequestEntity.setId(Long.valueOf(1));
+			restRequestEntity.setInsurerName("Insurer-1");
+			restRequestEntity.setUrl("http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-1/rest/qoute");
+			restRequestEntity.setUsername("insurer");
+			restRequestEntity.setPassword("password");
+			restRequestEntity.setMethodType("GET");
+			updateRestRequestEntity(restRequestEntity);
+			RestRequestEntity restRequestEntityTwo= new RestRequestEntity();
+			restRequestEntityTwo.setId(Long.valueOf(2));
+			restRequestEntityTwo.setInsurerName("Insurer-2");
+			restRequestEntityTwo.setUrl("http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-2/rest/policy");
+			restRequestEntityTwo.setUsername("insurer");
+			restRequestEntityTwo.setPassword("password");
+			restRequestEntityTwo.setMethodType("POST");
+			updateRestRequestEntity(restRequestEntityTwo);
+		}catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	public void updateRestRequestEntity(RestRequestEntity restRequestEntity) {
+		restRequestsRepository.save(restRequestEntity);
 	}
 	
 }

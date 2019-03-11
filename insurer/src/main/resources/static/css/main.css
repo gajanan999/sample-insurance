@@ -292,8 +292,8 @@ th, td {
 	border-bottom: 1px solid #ddd;
 }
 .btnDetails.configRequest {
-	min-height: 20px;
-	width: 105px;
+	min-height: 13px;
+    width: 105px;
 }
 
 .heading_configuredRequest {
@@ -422,5 +422,24 @@ input#password {
 
 #restRequest tr td{
 	
-	font-size:11px;
+	font-size: 15px;
+	text-align: center;
 }
+
+#restRequest tr.row {
+    height: 48px;
+}
+
+.urlRequest input{
+    width: 90%;
+    height: 15px;
+    border-radius: 4px;
+    text-align:center;
+}
+
+.urlRequest input.requestId{
+    width: 80%;
+    height: 15px;
+    border-radius: 4px;
+}
+

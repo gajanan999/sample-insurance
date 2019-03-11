@@ -24,34 +24,51 @@
 								<span class="boldLabel"> Configured Requests </span>
  							</div>
 							<div class="configuredRequest_data">
-								<div th:if="${not #lists.isEmpty(requestList)}">
-								    <table id="restRequest" class="table table-striped">
-								        <tr class="row">
-								            <th class="th">SR.No</th>
-								            <th class="th">URL</th>
-								            <th class="th">Username</th>
-								            <th class="th">Password</th>
-								            <th class="th">Method</th>
-								            <th class="th">Consume Type</th>
-								            <th class="th">Produce Type</th>
-								            <th class="th">Request Body</th>
-								        </tr>
-								        <tr class="row" th:each="request : ${requestList}">
-								        	<td th:text="${request.id}"></td>
-								            <td th:text="${request.url}"></td>
-								            <td th:text="${request.username}"></td>
-								            <td th:text="${request.password}"></td>
-								            <td th:text="${request.methodType}"></td>
-								            <td th:text="${request.consumeType}"></td>
-								            <td th:text="${request.produceType}"></td>
-								            <td th:text="${request.requestBody}"></td>
-								        </tr>
-								    </table>
+								<div th:if="${not #lists.isEmpty(restRequestsDetails.requestList)}">
+									<form th:object="${restRequestsDetails}" th:action="@{/updateRequests}" action="#" method="post">
+									    <table id="restRequest" class="table table-striped">
+									        <tr class="row">
+									        	<th class="th">Insurer ID</th>
+									            <th class="th">Insurer Name</th>
+									            <th class="th">Rest URL</th>
+									            <th class="th">Username</th>
+									            <th class="th">Password</th>
+									            <th class="th">HTTP Method</th>
+									            
+									        </tr>
+									        <tr class="row" th:each="request, stat : ${restRequestsDetails.requestList}">
+									        	<td class="urlRequest">
+									            	<input  class="requestId" type="text" th:value="${request.id}" id="id" th:field="*{requestList[__${stat.index}__].id}" readonly/>
+									            </td>
+									        	<td class="urlRequest">
+									            	<input  type="text" th:value="${request.insurerName}" id="insurerName" th:field="*{requestList[__${stat.index}__].insurerName}"/>
+									            </td>
+									            <td class="urlRequest">
+									            	<input  type="text" th:value="${request.url}" id="requestUrl" th:field="*{requestList[__${stat.index}__].url}" />
+									            </td>
+									            <td class="urlRequest">
+									            	<input  type="text" th:value="${request.username}" id="username" th:field="*{requestList[__${stat.index}__].username}"/>
+									            </td>
+									            <td class="urlRequest">
+									            	<input  type="text" th:value="${request.password}" id="password" th:field="*{requestList[__${stat.index}__].password}"/>
+									            </td>
+									            <td class="urlRequest">
+									            	<input  type="text" th:value="${request.methodType}" id="methodType" th:field="*{requestList[__${stat.index}__].methodType}" readonly/>
+									            </td>
+									            
+									        </tr>
+									    </table>
+									   
+									    <div class="btnArea">
+											<input type="submit" value="UPDATE" class="btnDetails configRequest">
+										</div>
+										
+									</form>
 								</div>
 							</div>
 							
 						</div>
-						<div class="configureRequest">
+						<!--  <div class="configureRequest">
 							<div class="headerData">
 								<div class="url">
 									<span class="boldLabel"> URL: </span> <input class="urlInput"
@@ -120,7 +137,7 @@
 							<div class="btnArea">
 								<button class="btnDetails configRequest">Configure</button>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</section>

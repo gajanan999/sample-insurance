@@ -1,29 +1,52 @@
 package com.insurer.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="rest_requests")
 public class RestRequestEntity {
 
-	private Integer id;
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	private String insurerName;
 	private String url;
 	private String username;
 	private String password;
 	private String methodType;
-	private String consumeType;
-	private String produceType;
-	private String requestBody;
-	
-	
+
 	@Override
 	public String toString() {
-		return "RestRequestEntity [id=" + id + ", url=" + url + ", username=" + username + ", password=" + password
-				+ ", methodType=" + methodType + ", consumeType=" + consumeType + ", produceType=" + produceType
-				+ ", requestBody=" + requestBody + "]";
+		return "RestRequestEntity [id=" + id + ", insurerName=" + insurerName + ", url=" + url + ", username="
+				+ username + ", password=" + password + ", methodType=" + methodType + "]";
 	}
-	public Integer getId() {
+
+
+	public String getInsurerName() {
+		return insurerName;
+	}
+
+
+	public void setInsurerName(String insurerName) {
+		this.insurerName = insurerName;
+	}
+
+
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 	public String getUrl() {
 		return url;
 	}
@@ -48,25 +71,6 @@ public class RestRequestEntity {
 	public void setMethodType(String methodType) {
 		this.methodType = methodType;
 	}
-	public String getConsumeType() {
-		return consumeType;
-	}
-	public void setConsumeType(String consumeType) {
-		this.consumeType = consumeType;
-	}
-	public String getProduceType() {
-		return produceType;
-	}
-	public void setProduceType(String produceType) {
-		this.produceType = produceType;
-	}
-	public String getRequestBody() {
-		return requestBody;
-	}
-	public void setRequestBody(String requestBody) {
-		this.requestBody = requestBody;
-	}
-	
-	
+
 	
 }
