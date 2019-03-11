@@ -20,11 +20,34 @@
 				<div class="spotlight">
 					<div class="content">
 						<div class="configuredRequest">
-							<div class="heading_configuredRequest">
+							<div class="heading_configureRequest">
 								<span class="boldLabel"> Configured Requests </span>
-							</div>
+ 							</div>
 							<div class="configuredRequest_data">
-								<span class="boldLabel"> Configured Requests </span>
+								<div th:if="${not #lists.isEmpty(requestList)}">
+								    <table id="restRequest" class="table table-striped">
+								        <tr class="row">
+								            <th class="th">SR.No</th>
+								            <th class="th">URL</th>
+								            <th class="th">Username</th>
+								            <th class="th">Password</th>
+								            <th class="th">Method</th>
+								            <th class="th">Consume Type</th>
+								            <th class="th">Produce Type</th>
+								            <th class="th">Request Body</th>
+								        </tr>
+								        <tr class="row" th:each="request : ${requestList}">
+								        	<td th:text="${request.id}"></td>
+								            <td th:text="${request.url}"></td>
+								            <td th:text="${request.username}"></td>
+								            <td th:text="${request.password}"></td>
+								            <td th:text="${request.methodType}"></td>
+								            <td th:text="${request.consumeType}"></td>
+								            <td th:text="${request.produceType}"></td>
+								            <td th:text="${request.requestBody}"></td>
+								        </tr>
+								    </table>
+								</div>
 							</div>
 							
 						</div>
@@ -50,11 +73,11 @@
 								</div>
 							</div>
 							<div class="authorizationData">
-								<span class="boldLabel"> Basic Authorization: </span> <span
-									class="boldLabel"> Username: </span> <input
-									class="usernameInput" type="text" id="username" name="username"></input>
-								<span class="boldLabel"> Password: </span> <input
-									class="passwordInput" type="text" id="password" name="password"></input>
+								<span class="boldLabel"> Basic Authorization: </span> 
+								<span class="boldLabel"> Username: </span> 
+								<input class="usernameInput" type="text" id="username" name="username"></input>
+								<span class="boldLabel"> Password: </span>
+								<input class="passwordInput" type="text" id="password" name="password"></input>
 							</div>
 							<div class="btnArea">
 								<button class="btnDetails configRequest">Configure</button>

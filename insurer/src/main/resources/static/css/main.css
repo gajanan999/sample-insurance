@@ -414,3 +414,13 @@ input#password {
 	position: relative;
 	width: 30%;
 }
+
+#restRequest tr th{
+	
+	font-size:14px;
+}
+
+#restRequest tr td{
+	
+	font-size:11px;
+}
