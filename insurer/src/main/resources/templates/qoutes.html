@@ -39,9 +39,9 @@
 						        <tr class="row" th:each="quote : ${quotes}">
 						            <td th:text="${quote.insurer}"></td>
 						            <td th:text="${quote.cashless}"></td>
-						            <td th:text="${quote.idv}"></td>
-						            <td th:text="${quote.zeroDepricationAddon}"></td>
-						            <td th:text="${quote.premium}"></td>
+						            <td th:text="${#numbers.formatCurrency(quote.idv)}"></td>
+						            <td th:text="${#numbers.formatCurrency(quote.zeroDepricationAddon)}"></td>
+						            <td th:text="${#numbers.formatCurrency(quote.premium)}"></td>
 						        </tr>
 						    </table>
 						</div>
