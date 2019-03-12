@@ -1,6 +1,5 @@
 package com.insurer.controller;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -33,13 +32,7 @@ public class CustomerController {
 	public String doSearch(CustomerDetails customerDetails,Model model){
 		System.out.println("here");
 		System.out.println(customerDetails.toString());
-		// do your conditional logic in here to check if form parameters were populated or not
-	    // then do something about getting results from the repository
-	    /*List<String> students = repository.find....;
-	    // return a model and a view (just as an example)
-	    ModelAndView mv = new ModelAndView();
-	    mv.addObject(students);
-	    mv.setViewName("/results");*/
+		
 		if(!NumberUtils.isNumber(customerDetails.getDrivingExp())) {
 			model.addAttribute("msg", messageSource.getMessage("INVALID_EXPERIENCE", new Object[0],local));
 			return "index";
@@ -48,7 +41,7 @@ public class CustomerController {
 		List<QuoteVo> quoteList=new ArrayList<>();
 		try {
 			quoteList = restService.getRestReponse(customerDetails);
-		} catch (ParseException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "greeting";

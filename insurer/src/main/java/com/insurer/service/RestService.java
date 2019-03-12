@@ -2,6 +2,8 @@ package com.insurer.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Base64.Encoder;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.insurer.config.CommonUtility;
 import com.insurer.dao.RestRequestsRepository;
 import com.insurer.entities.RestRequestEntity;
 import com.insurer.vo.CustomerDetails;
@@ -35,6 +38,9 @@ public class RestService {
 	@Autowired
 	RestRequestsRepository restRequestsRepository;
 	
+	@Autowired
+	CommonUtility commonUtility;
+	
 	public RestTemplate getRestTemplate() {
 		if(null == restTemplate) {
 			return new RestTemplate();
@@ -44,24 +50,30 @@ public class RestService {
 	static String URL="http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-2/rest/policy";
 	public List<QuoteVo> getRestReponse(CustomerDetails customerDetails) throws ParseException{
 		List<QuoteVo> quoteList=new ArrayList<>();
-
-		RequestPolicyVo requestPolicyVo=new RequestPolicyVo();
-		requestPolicyVo.setTechnicalPassportNr(customerDetails.getTpnr());
-		requestPolicyVo.setAge(30);
-		requestPolicyVo.setExperience(Integer.valueOf(customerDetails.getDrivingExp()));
+		List<RestRequestEntity> restRequestEntities=restRequestsRepository.findAll();
 		
-		LinkedHashMap<String, Double> map=new LinkedHashMap<>();
+		for(RestRequestEntity restRequestEntity:restRequestEntities) {
+			
+			if("GET".equals(restRequestEntity.getMethodType())) {
+				Double quote=getQuoteFromInsurerOne(customerDetails,restRequestEntity.getUrl(),restRequestEntity.getUsername(),restRequestEntity.getPassword());
+			    quoteList.add(getQuoteObject(restRequestEntity.getInsurerName(), "Yes", 9000.0, 80.0, quote));
+			}else if("POST".equals(restRequestEntity.getMethodType())) {
+				Quote quoteVoXML =new Quote();
+				Double quote=getQuoteFromInsurerTWO(customerDetails,restRequestEntity.getUrl(),quoteVoXML,restRequestEntity.getUsername(),restRequestEntity.getPassword());
+				quoteList.add(getQuoteObject(restRequestEntity.getInsurerName(), "Yes", 7500.0, 100.0, quote));
+			}
+			
+		}
+		return quoteList;
+	}
 	
-		//map = restTemplate.postForObject(URL, requestPolicyVo, LinkedHashMap.class);
-		map=getRest(URL,"POST",requestPolicyVo,map);
-	    log.info(map + " " + map.toString());
-	    System.out.println(map);
-	    quoteList.add(getQuoteObject("Insurer-1", "Yes", 9000.0, 80.0, map.get("qoute")));
-	    
-	  
-	    String url="http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-1/rest/qoute";
-	    Date date=new SimpleDateFormat("yyyy-MM-dd").parse(customerDetails.getDob());
-	    String dateInFormat=new SimpleDateFormat("dd.MM.yyyy").format(date);
+	
+	public <T> Double getQuoteFromInsurerTWO(CustomerDetails customerDetails,String url,T response,String username,String password) {
+		 
+	   // Date date=new SimpleDateFormat("yyyy-MM-dd").parse(customerDetails.getDob());
+	    Date date=commonUtility.getDateFromString("yyyy-MM-dd", customerDetails.getDob());
+	    //String dateInFormat=new SimpleDateFormat("dd.MM.yyyy").format(date);
+	    String dateInFormat=commonUtility.getStringFromDate("dd.MM.yyyy", date);
 	    UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
 	            .queryParam("tpnr",customerDetails.getTpnr())
 	            .queryParam("dob", dateInFormat);
@@ -69,14 +81,36 @@ public class RestService {
 	
 	    System.out.println(builder.toUriString());
 	   // String result = restTemplate.getForObject(builder.toUriString(),  String.class);
-	   // Quote quoteVoXML  = restTemplate.getForObject(builder.toUriString(),  Quote.class);
-	    Quote quoteVoXML =new Quote();
-	    quoteVoXML=getRest(builder.toUriString(),"GET",null,quoteVoXML);
-	    quoteList.add(getQuoteObject("Insurer-2", "Yes", 7500.0, 100.0, quoteVoXML.getPremium()));
-	    System.out.println(quoteVoXML.toString());
+	  
+	   
+	    response=getRest(builder.toUriString(),"GET",null,response,username,password);
+	    Double qoute=0.0;
+	    if(null != response) {
+	    	qoute=((Quote) response).getPremium();
+	    	System.out.println(response.toString());
+	    }
 	    
-	  //  quoteList.add(quote);
-		return quoteList;
+	    
+		return qoute;
+	}
+	
+	public Double getQuoteFromInsurerOne(CustomerDetails customerDetails,String url,String username,String password) {
+		LocalDate birthday=commonUtility.getLocalDate(commonUtility.getDateFromString("yyyy-MM-dd", customerDetails.getDob()));
+		Period period=Period.between(birthday, LocalDate.now());
+		RequestPolicyVo requestPolicyVo=new RequestPolicyVo();
+		requestPolicyVo.setTechnicalPassportNr(customerDetails.getTpnr());
+		requestPolicyVo.setAge(period.getYears());
+		requestPolicyVo.setExperience(Integer.valueOf(customerDetails.getDrivingExp()));
+		LinkedHashMap<String, Double> map=new LinkedHashMap<>();
+		map=getRest(URL,"POST",requestPolicyVo,map,username,password);
+		Double qoute=0.0;
+		if(map.size()>0) {
+			qoute=map.get("qoute");
+		}
+		
+	    log.info(map + " " + map.toString());
+	    System.out.println(map);
+	    return qoute;
 	}
 	
 	public QuoteVo getQuoteObject(String insurerName,String cashless,Double idv,Double zeroDepricationAddon,Double premium) {
@@ -91,21 +125,25 @@ public class RestService {
 	
 	
 	
-	public <T,K> T getRest(String url,String httpMethod,K request,T reponse) {
-		RestTemplate restTemplate = getRestTemplate();
-		restTemplate=getRestTemplateWithAuth(restTemplate);
-		if(httpMethod.equals("GET")) {
-			reponse = (T) restTemplate.getForObject(url,  reponse.getClass());
-		}else if(httpMethod.equals("POST")){
-			reponse=(T) restTemplate.postForObject(URL, request, reponse.getClass());
+	public <T,K> T getRest(String url,String httpMethod,K request,T reponse,String username,String password) {
+		try {
+			RestTemplate restTemplate = getRestTemplate();
+			restTemplate=getRestTemplateWithAuth(restTemplate,username,password);
+			if(httpMethod.equals("GET")) {
+				reponse = (T) restTemplate.getForObject(url,  reponse.getClass());
+			}else if(httpMethod.equals("POST")){
+				reponse=(T) restTemplate.postForObject(URL, request, reponse.getClass());
+			}
+		}catch(Exception e) {
+			log.error(e.getMessage());
 		}
 		
 		return reponse;
 	}
 	
 	
-	public RestTemplate getRestTemplateWithAuth(RestTemplate restTemplate) {
-		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("insurer", "password"));
+	public RestTemplate getRestTemplateWithAuth(RestTemplate restTemplate,String username,String password) {
+		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor(username, password));
 		return restTemplate;	
 	}
 	
