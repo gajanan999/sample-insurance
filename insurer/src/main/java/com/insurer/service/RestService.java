@@ -1,7 +1,6 @@
 package com.insurer.service;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -15,12 +14,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.insurer.config.CommonUtility;
+import com.insurer.config.LoggingRequestInterceptor;
 import com.insurer.dao.RestRequestsRepository;
 import com.insurer.entities.RestRequestEntity;
 import com.insurer.vo.CustomerDetails;
@@ -49,8 +52,10 @@ public class RestService {
 	}
 	static String URL="http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-2/rest/policy";
 	public List<QuoteVo> getRestReponse(CustomerDetails customerDetails) throws ParseException{
+		
+		log.info("Entering getRestReponse");
 		List<QuoteVo> quoteList=new ArrayList<>();
-		List<RestRequestEntity> restRequestEntities=restRequestsRepository.findAll();
+		List<RestRequestEntity>restRequestEntities=restRequestsRepository.findAll();
 		
 		for(RestRequestEntity restRequestEntity:restRequestEntities) {
 			
@@ -67,12 +72,14 @@ public class RestService {
 				}
 			
 		}
+		
+		log.info("Exiting getRestReponse");
 		return quoteList;
 	}
 	
 	
 	public <T> Double getQuoteFromInsurerTWO(CustomerDetails customerDetails,String url,T response,String username,String password) {
-		 
+		log.info("Entering getQuoteFromInsurerTWO");
 	   // Date date=new SimpleDateFormat("yyyy-MM-dd").parse(customerDetails.getDob());
 	    Date date=commonUtility.getDateFromString("yyyy-MM-dd", customerDetails.getDob());
 	    //String dateInFormat=new SimpleDateFormat("dd.MM.yyyy").format(date);
@@ -92,12 +99,14 @@ public class RestService {
 	    	qoute=((Quote) response).getPremium();
 	    	System.out.println(response.toString());
 	    }
-	    
+	    log.info("Exiting getQuoteFromInsurerTWO qoute:"+qoute);
 	    
 		return qoute;
 	}
 	
 	public Double getQuoteFromInsurerOne(CustomerDetails customerDetails,String url,String username,String password) {
+		
+		log.info("Entering getQuoteFromInsurerOne");
 		LocalDate birthday=commonUtility.getLocalDate(commonUtility.getDateFromString("yyyy-MM-dd", customerDetails.getDob()));
 		Period period=Period.between(birthday, LocalDate.now());
 		RequestPolicyVo requestPolicyVo=new RequestPolicyVo();
@@ -113,6 +122,7 @@ public class RestService {
 		
 	    log.info(map + " " + map.toString());
 	    System.out.println(map);
+	    log.info("Exiting getQuoteFromInsurerOne qoute:"+qoute);
 	    return qoute;
 	}
 	
@@ -147,6 +157,12 @@ public class RestService {
 	
 	public RestTemplate getRestTemplateWithAuth(RestTemplate restTemplate,String username,String password) {
 		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor(username, password));
+		
+		/*ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
+		List<ClientHttpRequestInterceptor> ris = new ArrayList<ClientHttpRequestInterceptor>();
+		ris.add(ri);
+		restTemplate.setInterceptors(ris);
+		restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));*/
 		return restTemplate;	
 	}
 	

@@ -1,0 +1,147 @@
+2019-03-13 20:43:24.015  INFO 101476 --- [main] com.insurer.InsurerApplication           : Starting InsurerApplication on Javafs with PID 101476 (C:\git\sample-insurance\insurer\target\classes started by Admin in C:\git\sample-insurance\insurer)
+2019-03-13 20:43:24.015  INFO 101476 --- [main] com.insurer.InsurerApplication           : No active profile set, falling back to default profiles: default
+2019-03-13 20:43:25.609  INFO 101476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-13 20:43:25.773  INFO 101476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 148ms. Found 1 repository interfaces.
+2019-03-13 20:43:26.398  INFO 101476 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d1444157] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-13 20:43:26.945  INFO 101476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-03-13 20:43:27.008  INFO 101476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-13 20:43:27.008  INFO 101476 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-03-13 20:43:27.040  INFO 101476 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Admin\AppData\Roaming\npm;C:\java cognizant\sts-bundle\sts-3.9.1.RELEASE;;.]
+2019-03-13 20:43:27.227  INFO 101476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-13 20:43:27.227  INFO 101476 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3149 ms
+2019-03-13 20:43:27.508  INFO 101476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-13 20:43:27.774  INFO 101476 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2019-03-13 20:43:27.790  INFO 101476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-13 20:43:27.915  INFO 101476 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-13 20:43:28.368  INFO 101476 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-13 20:43:28.368  INFO 101476 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-03-13 20:43:28.769  INFO 101476 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-13 20:43:29.660  INFO 101476 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-03-13 20:43:29.708  INFO 101476 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-03-13 20:43:30.661  INFO 101476 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-13 20:43:31.490  INFO 101476 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-13 20:43:31.599  WARN 101476 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-13 20:43:31.771  INFO 101476 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-13 20:43:31.975  INFO 101476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-03-13 20:43:31.991  INFO 101476 --- [main] com.insurer.InsurerApplication           : Started InsurerApplication in 8.824 seconds (JVM running for 10.192)
+2019-03-13 20:43:39.644  INFO 101476 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-13 20:43:39.644  INFO 101476 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-03-13 20:43:39.720  INFO 101476 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 76 ms
+2019-03-13 20:43:54.975  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : Entering getRestReponse
+2019-03-13 20:43:55.137  INFO 101476 --- [http-nio-8081-exec-8] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-03-13 20:43:55.422  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : Entering getQuoteFromInsurerTWO
+2019-03-13 20:43:56.017 ERROR 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : 401 Unauthorized
+2019-03-13 20:43:56.018  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : Exiting getQuoteFromInsurerTWO qoute:null
+2019-03-13 20:43:56.018  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : Entering getQuoteFromInsurerOne
+2019-03-13 20:43:56.284 ERROR 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : I/O error on POST request for "http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-2/rest/policy": cannot retry due to server authentication, in streaming mode; nested exception is java.net.HttpRetryException: cannot retry due to server authentication, in streaming mode
+2019-03-13 20:43:56.286  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : {} {}
+2019-03-13 20:43:56.289  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : Exiting getQuoteFromInsurerOne qoute:0.0
+2019-03-13 20:43:56.290  INFO 101476 --- [http-nio-8081-exec-8] com.insurer.service.RestService          : Exiting getRestReponse
+2019-03-13 20:47:00.617  INFO 101476 --- [RMI TCP Connection(3)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-03-13 20:47:00.706  INFO 101476 --- [RMI TCP Connection(3)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-03-13 20:47:00.714  INFO 101476 --- [RMI TCP Connection(3)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-13 20:47:00.726  INFO 101476 --- [RMI TCP Connection(3)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-13 20:47:01.027  INFO 101476 --- [RMI TCP Connection(3)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-03-13 20:47:17.113  INFO 10656 --- [main] com.insurer.InsurerApplication           : Starting InsurerApplication on Javafs with PID 10656 (C:\git\sample-insurance\insurer\target\classes started by Admin in C:\git\sample-insurance\insurer)
+2019-03-13 20:47:17.128  INFO 10656 --- [main] com.insurer.InsurerApplication           : No active profile set, falling back to default profiles: default
+2019-03-13 20:47:19.097  INFO 10656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-13 20:47:19.301  INFO 10656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 1 repository interfaces.
+2019-03-13 20:47:20.192  INFO 10656 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$349e8461] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-13 20:47:20.943  INFO 10656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-03-13 20:47:20.990  INFO 10656 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-13 20:47:20.990  INFO 10656 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-03-13 20:47:21.068  INFO 10656 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Admin\AppData\Roaming\npm;C:\java cognizant\sts-bundle\sts-3.9.1.RELEASE;;.]
+2019-03-13 20:47:21.318  INFO 10656 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-13 20:47:21.318  INFO 10656 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4080 ms
+2019-03-13 20:47:21.664  INFO 10656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-13 20:47:22.007  INFO 10656 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2019-03-13 20:47:22.007  INFO 10656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-13 20:47:22.148  INFO 10656 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-13 20:47:22.617  INFO 10656 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-13 20:47:22.617  INFO 10656 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-03-13 20:47:23.049  INFO 10656 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-13 20:47:23.346  INFO 10656 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-03-13 20:47:23.424  INFO 10656 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-03-13 20:47:24.706  INFO 10656 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-13 20:47:25.826  INFO 10656 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-13 20:47:26.021  WARN 10656 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-13 20:47:26.349  INFO 10656 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-13 20:47:26.708  INFO 10656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-03-13 20:47:26.708  INFO 10656 --- [main] com.insurer.InsurerApplication           : Started InsurerApplication in 10.536 seconds (JVM running for 11.919)
+2019-03-13 20:47:32.775  INFO 10656 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-13 20:47:32.775  INFO 10656 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-03-13 20:47:32.775  INFO 10656 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2019-03-13 20:47:47.689  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : Entering getRestReponse
+2019-03-13 20:47:47.809  INFO 10656 --- [http-nio-8081-exec-9] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-03-13 20:47:48.035  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : Entering getQuoteFromInsurerTWO
+2019-03-13 20:47:48.085 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : HTTP GET http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-1/rest/qoute?tpnr=213323&dob=15.07.2005
+2019-03-13 20:47:48.223 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Accept=[application/xml, text/xml, application/json, application/*+xml, application/*+json]
+2019-03-13 20:47:48.565 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Response 200 OK
+2019-03-13 20:47:48.569 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Reading to [com.insurer.vo.Quote] as "application/xml;charset=UTF-8"
+2019-03-13 20:47:49.087  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : Exiting getQuoteFromInsurerTWO qoute:48.46
+2019-03-13 20:47:49.090  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : Entering getQuoteFromInsurerOne
+2019-03-13 20:47:49.109 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : HTTP POST http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-2/rest/policy
+2019-03-13 20:47:49.125 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2019-03-13 20:47:49.154 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Writing [com.insurer.vo.RequestPolicyVo@6200986f] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2019-03-13 20:47:49.398 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Response 200 OK
+2019-03-13 20:47:49.399 DEBUG 10656 --- [http-nio-8081-exec-9] o.s.web.client.RestTemplate              : Reading to [java.util.LinkedHashMap<?, ?>]
+2019-03-13 20:47:49.424  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : {qoute=166.59} {qoute=166.59}
+2019-03-13 20:47:49.426  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : Exiting getQuoteFromInsurerOne qoute:166.59
+2019-03-13 20:47:49.426  INFO 10656 --- [http-nio-8081-exec-9] com.insurer.service.RestService          : Exiting getRestReponse
+2019-03-13 20:49:09.203  INFO 31044 --- [main] com.insurer.InsurerApplication           : Starting InsurerApplication on Javafs with PID 31044 (C:\git\sample-insurance\insurer\target\classes started by Admin in C:\git\sample-insurance\insurer)
+2019-03-13 20:49:09.218  INFO 31044 --- [main] com.insurer.InsurerApplication           : No active profile set, falling back to default profiles: default
+2019-03-13 20:49:10.828  INFO 31044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-13 20:49:11.166  INFO 31044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 323ms. Found 1 repository interfaces.
+2019-03-13 20:49:12.354  INFO 31044 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$42404f72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-13 20:49:12.916  INFO 31044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-03-13 20:49:12.963  INFO 31044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-13 20:49:12.963  INFO 31044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-03-13 20:49:12.979  INFO 31044 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Admin\AppData\Roaming\npm;C:\java cognizant\sts-bundle\sts-3.9.1.RELEASE;;.]
+2019-03-13 20:49:13.246  INFO 31044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-13 20:49:13.246  INFO 31044 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3934 ms
+2019-03-13 20:49:13.636  INFO 31044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-13 20:49:13.997  INFO 31044 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2019-03-13 20:49:14.012  INFO 31044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-13 20:49:14.137  INFO 31044 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-13 20:49:14.590  INFO 31044 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-13 20:49:14.590  INFO 31044 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-03-13 20:49:14.918  INFO 31044 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-13 20:49:15.169  INFO 31044 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-03-13 20:49:15.216  INFO 31044 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-03-13 20:49:16.216  INFO 31044 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-13 20:49:17.147  INFO 31044 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-13 20:49:17.256  WARN 31044 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-13 20:49:17.585  INFO 31044 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-13 20:49:17.789  INFO 31044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-03-13 20:49:17.789  INFO 31044 --- [main] com.insurer.InsurerApplication           : Started InsurerApplication in 9.313 seconds (JVM running for 11.104)
+2019-03-13 20:49:22.217  INFO 31044 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-13 20:49:22.217  INFO 31044 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-03-13 20:49:22.233  INFO 31044 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2019-03-13 20:49:37.536  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : Entering getRestReponse
+2019-03-13 20:49:37.701  INFO 31044 --- [http-nio-8081-exec-7] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-03-13 20:49:37.922  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : Entering getQuoteFromInsurerTWO
+2019-03-13 20:49:37.963 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : HTTP GET http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-1/rest/qoute?tpnr=213323&dob=12.02.2004
+2019-03-13 20:49:38.009 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Accept=[application/xml, text/xml, application/json, application/*+xml, application/*+json]
+2019-03-13 20:49:38.356 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Response 200 OK
+2019-03-13 20:49:38.359 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Reading to [com.insurer.vo.Quote] as "application/xml;charset=UTF-8"
+2019-03-13 20:49:38.953  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : Exiting getQuoteFromInsurerTWO qoute:42.0
+2019-03-13 20:49:38.953  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : Entering getQuoteFromInsurerOne
+2019-03-13 20:49:38.968 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : HTTP POST http://ec2-52-56-231-146.eu-west-2.compute.amazonaws.com/insurer-2/rest/policy
+2019-03-13 20:49:38.977 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2019-03-13 20:49:39.000 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Writing [RequestPolicyVo [technicalPassportNr=213323, age=15, experience=2]] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2019-03-13 20:49:39.171 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Response 200 OK
+2019-03-13 20:49:39.178 DEBUG 31044 --- [http-nio-8081-exec-7] o.s.web.client.RestTemplate              : Reading to [java.util.LinkedHashMap<?, ?>]
+2019-03-13 20:49:39.209  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : {qoute=144.37} {qoute=144.37}
+2019-03-13 20:49:39.210  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : Exiting getQuoteFromInsurerOne qoute:144.37
+2019-03-13 20:49:39.210  INFO 31044 --- [http-nio-8081-exec-7] com.insurer.service.RestService          : Exiting getRestReponse
+2019-03-13 20:49:53.064  INFO 31044 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-03-13 20:49:53.064  INFO 31044 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-03-13 20:49:53.064  INFO 31044 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-13 20:49:53.083  INFO 31044 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-13 20:49:53.098  INFO 31044 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

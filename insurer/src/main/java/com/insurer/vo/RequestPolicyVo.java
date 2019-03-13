@@ -8,6 +8,14 @@ public class RequestPolicyVo {
 	private Integer age;
 	
 	private Integer experience;
+	
+	
+
+	@Override
+	public String toString() {
+		return "RequestPolicyVo [technicalPassportNr=" + technicalPassportNr + ", age=" + age + ", experience="
+				+ experience + "]";
+	}
 
 	public String getTechnicalPassportNr() {
 		return technicalPassportNr;

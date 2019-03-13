@@ -46,8 +46,9 @@ public class CustomerController {
 			e.printStackTrace();
 			return "greeting";
 		}
+		System.out.println(quoteList);
 		
-		
+		System.out.println("returing quotes");
 		model.addAttribute("quotes", quoteList);
 	    return "qoutes";
 	}
