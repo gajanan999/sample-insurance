@@ -55,13 +55,16 @@ public class RestService {
 		for(RestRequestEntity restRequestEntity:restRequestEntities) {
 			
 			if("GET".equals(restRequestEntity.getMethodType())) {
-				Double quote=getQuoteFromInsurerOne(customerDetails,restRequestEntity.getUrl(),restRequestEntity.getUsername(),restRequestEntity.getPassword());
-			    quoteList.add(getQuoteObject(restRequestEntity.getInsurerName(), "Yes", 9000.0, 80.0, quote));
-			}else if("POST".equals(restRequestEntity.getMethodType())) {
+				
 				Quote quoteVoXML =new Quote();
 				Double quote=getQuoteFromInsurerTWO(customerDetails,restRequestEntity.getUrl(),quoteVoXML,restRequestEntity.getUsername(),restRequestEntity.getPassword());
 				quoteList.add(getQuoteObject(restRequestEntity.getInsurerName(), "Yes", 7500.0, 100.0, quote));
-			}
+			
+				
+			}else if("POST".equals(restRequestEntity.getMethodType())) {
+				Double quote=getQuoteFromInsurerOne(customerDetails,restRequestEntity.getUrl(),restRequestEntity.getUsername(),restRequestEntity.getPassword());
+			    quoteList.add(getQuoteObject(restRequestEntity.getInsurerName(), "Yes", 9000.0, 80.0, quote));
+				}
 			
 		}
 		return quoteList;
@@ -152,8 +155,7 @@ public class RestService {
 		byte[] plainCredsBytes = plainCreds.getBytes();
 		Encoder encoder=Base64.getEncoder();
 		byte[] base64CredsBytes =  encoder.encode(plainCredsBytes);
-		String base64Creds = new String(base64CredsBytes);
-		
+		String base64Creds = new String(base64CredsBytes);	
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Basic " + base64Creds);
 		return headers;

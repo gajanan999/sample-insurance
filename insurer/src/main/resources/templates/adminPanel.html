@@ -6,8 +6,19 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
 <!--<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+
+<script>
+ $(document).ready(function(){
+
+	$("#home").removeClass("active")
+	$("#contact").removeClass("active")
+  	$("#admin").addClass("active")
+ 
+}); 
+</script>
 </head>
 <body class="is-preload">
 	<div id="wrapper">

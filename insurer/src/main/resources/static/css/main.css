@@ -220,6 +220,7 @@ header.major h2:after {
 
 .textinput input[type="date"] {
 	text-align: center;
+	color: #636363;
 }
 
 .textinput input[type="date"]::placeholder {
